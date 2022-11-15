@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { render } from "react-dom";
 import Board from "./Board";
-import Square from "./Square";
 
 export default function Game() {
 	const [history, setHistory] = useState([
