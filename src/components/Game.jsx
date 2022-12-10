@@ -83,6 +83,10 @@ export default function Game() {
 		);
 		setStepNumber(newHistory.length)
 		setXIsNext(!xIsNext)
+
+		// adding square-clicked (CSS) class
+		const square_clicked = document.getElementsByClassName('square')
+		square_clicked[i].classList.add("square-clicked")
 	}
 
 	return (
@@ -91,7 +95,7 @@ export default function Game() {
 				<Board squares={current.squares} onClick={(i) => handleClick(i)} />
 			</div>
 			<div className="game-info">
-				<div>{status}</div>
+				<div className="player">{status}</div>
 				<ol>{moves}</ol>
 			</div>
 		</div>
