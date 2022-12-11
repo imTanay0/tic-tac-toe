@@ -50,7 +50,7 @@ export default function Game() {
 
 		return (
 			<li key={move}>
-				<button onClick={() => jumpTo(move)}>{desc}</button>
+				<button className="move-btn" onClick={() => jumpTo(move)}>{desc}</button>
 			</li>
 		);
 	});
