@@ -59,60 +59,7 @@ export default function Game() {
 				squareClicked[i].classList.remove('square-clicked')
 			}
 		}
-		
-
-		// const squares = history[0].squares
-
-		// for (var i = 0; i < 9; i ++) {
-		// 	buttonClicked[i].classList.remove('square')
-		// }
-
-		// setXIsNext(step % 2 === 0)
 	}
-
-		// ! Update this
-		// const squares = history[step].squares
-		
-		// console.log(squares)
-		
-		// const nulls = []
-		// let j = 0
-
-		// for (var i = 0; i < 9; i++) {
-		// 	if (squares[i] === null) {
-		// 		nulls[j] = i
-		// 		j++
-		// 	}
-		// }
-
-		// console.log('nulls: ', nulls);
-
-
-		// const square_clicked = document.getElementsByClassName('square')
-
-		// if (!isRomove) {
-		// 	for (var i = 0; i < nulls.length; i++) {
-		// 		square_clicked[nulls[i]].classList.remove("square-clicked")
-		// 		isRomove = true
-		// 	}
-		// } else {
-		// 	for (var i = 0; i < nulls.length; i++) {
-		// 		square_clicked[nulls[i]].classList.add("square-clicked")
-		// 		isRomove = false
-		// 	}
-		// }
-	// }
-
-
-	// const moves = history.map((step, move) => {
-	// 	const desc = move ? "Go to move #" + move : "Go to game start";
-
-	// 	return (
-	// 		<li key={move}>
-	// 			<button className="move-btn" onClick={() => jumpTo(move)}>{desc}</button>
-	// 		</li>
-	// 	);
-	// });
 
 	let status;
 
