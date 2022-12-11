@@ -36,14 +36,40 @@ export default function Game() {
 		return null;
 	};
 
+
 	const newHistory = history;
 	const current = newHistory[stepNumber];
 	const winner = calculateWinner(current.squares);
 
+
+
 	function jumpTo(step) {
 		setStepNumber(step)
 		setXIsNext(step % 2 === 0)
+
+		// ! Update this
+		const squares = history[step].squares
+		
+		console.log(squares)
+		
+		const nulls = []
+		let j = 0
+
+		for (var i = 0; i < 9; i++) {
+			if (squares[i] === null) {
+				nulls[j] = i
+				j++
+			}
+		}
+
+		console.log('nulls: ', nulls);
+
+		const square_clicked = document.getElementsByClassName('square')
+		for (var i = 0; i < nulls.length; i++) {
+			square_clicked[nulls[i]].classList.remove("square-clicked")
+		}
 	}
+
 
 	const moves = history.map((step, move) => {
 		const desc = move ? "Go to move #" + move : "Go to game start";
@@ -63,6 +89,7 @@ export default function Game() {
 		status = "Next player: " + (xIsNext ? "X" : "O");
 	}
 
+	// handle Click
 	function handleClick(i) {
 		const newHistory = history.slice(0, stepNumber + 1);
 		const current = newHistory[stepNumber];
@@ -83,8 +110,7 @@ export default function Game() {
 		);
 		setStepNumber(newHistory.length)
 		setXIsNext(!xIsNext)
-
-		// adding square-clicked (CSS) class
+		
 		const square_clicked = document.getElementsByClassName('square')
 		square_clicked[i].classList.add("square-clicked")
 	}
