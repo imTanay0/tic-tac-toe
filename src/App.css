@@ -5,7 +5,6 @@ body {
 
   display: flex;
   justify-content: center;
-  
 }
 
 ol,
@@ -62,24 +61,28 @@ ul {
 
 .game {
   margin-top: 20px;
-  margin-left: 100px;
   display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.game-info {
-  margin-left: 20px;
+#player {
+  padding-bottom: 20px;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
-.move-btn {
+.restart-btn {
   border: none;
   background-color: #474747;
   color: white;
   margin-bottom: 2px;
-  height: 25px;
+  width: 72px;
+  height: 32px;
   border-radius: 10%;
 }
 
-.move-btn:hover {
+.restart-btn:hover {
   transition: 400ms;
   background-color: #3030e0;
 }
@@ -109,7 +112,7 @@ ul {
     align-items: center;
   }
 
-  .player {
+  #player {
     text-align: center;
   }
 }

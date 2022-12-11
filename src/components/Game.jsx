@@ -41,12 +41,12 @@ export default function Game() {
 	const winner = calculateWinner(current.squares);
 
 
-	
+
 	// let isRomove = false
 	function jumpTo() {
-
+		setXIsNext(true)
 		const step = stepNumber
-		
+
 		setStepNumber(0)
 
 		const squares = history[step].squares
@@ -90,22 +90,20 @@ export default function Game() {
 		);
 		setStepNumber(newHistory.length)
 		setXIsNext(!xIsNext)
-		
+
 		const square_clicked = document.getElementsByClassName('square')
 		square_clicked[i].classList.add("square-clicked")
 	}
 
 	return (
 		<div className="game">
-			<div className="game-info">
-				<div className="player">{status}</div>
-			</div>
+			<div id="player">{status}</div>
 			<div className="game-board">
 				<Board squares={current.squares} onClick={(i) => handleClick(i)} />
 			</div>
-				<p>
-					<button className="move-btn" onClick={() => jumpTo()}>Restart</button>
-				</p>
+			<p>
+				<button className="restart-btn" onClick={() => jumpTo()}>Restart</button>
+			</p>
 		</div>
 	);
 }
