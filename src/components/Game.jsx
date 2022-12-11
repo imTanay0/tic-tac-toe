@@ -40,9 +40,6 @@ export default function Game() {
 	const current = newHistory[stepNumber];
 	const winner = calculateWinner(current.squares);
 
-
-
-	// let isRomove = false
 	function jumpTo() {
 		setXIsNext(true)
 		const step = stepNumber
@@ -69,7 +66,6 @@ export default function Game() {
 		status = "Next player: " + (xIsNext ? "X" : "O");
 	}
 
-	// handle Click
 	function handleClick(i) {
 		const newHistory = history.slice(0, stepNumber + 1);
 		const current = newHistory[stepNumber];
