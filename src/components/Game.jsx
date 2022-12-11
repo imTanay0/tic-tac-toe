@@ -85,8 +85,8 @@ export default function Game() {
 		setXIsNext(!xIsNext)
 
 		// adding square-clicked (CSS) class
-		const square_clicked = document.getElementsByClassName('square')
-		square_clicked[i].classList.add("square-clicked")
+		// const square_clicked = document.getElementsByClassName('square')
+		// square_clicked[i].classList.add("square-clicked")
 	}
 
 	return (
