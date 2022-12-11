@@ -53,6 +53,7 @@ ul {
 
 .square-clicked {
   background-color: #a95cff;
+  color: #fff;
 }
 
 .kbd-navigation .square:focus {
@@ -73,13 +74,14 @@ ul {
   border: none;
   background-color: #474747;
   color: white;
-  margin-bottom: 1px;
+  margin-bottom: 2px;
+  height: 25px;
+  border-radius: 10%;
 }
 
 .move-btn:hover {
-
   transition: 400ms;
-  background-color: blue;
+  background-color: #3030e0;
 }
 
 /* -------------------------- */

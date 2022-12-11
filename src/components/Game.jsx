@@ -36,50 +36,83 @@ export default function Game() {
 		return null;
 	};
 
-
 	const newHistory = history;
 	const current = newHistory[stepNumber];
 	const winner = calculateWinner(current.squares);
 
 
+	
+	// let isRomove = false
+	function jumpTo() {
 
-	function jumpTo(step) {
-		setStepNumber(step)
-		setXIsNext(step % 2 === 0)
+		const step = stepNumber
+		
+		setStepNumber(0)
 
-		// ! Update this
 		const squares = history[step].squares
-		
-		console.log(squares)
-		
-		const nulls = []
-		let j = 0
+
+		const squareClicked = document.getElementsByClassName('square')
 
 		for (var i = 0; i < 9; i++) {
-			if (squares[i] === null) {
-				nulls[j] = i
-				j++
+			const classess = squareClicked[i].classList.value
+			if (classess.includes('square-clicked')) {
+				squareClicked[i].classList.remove('square-clicked')
 			}
 		}
+		
 
-		console.log('nulls: ', nulls);
+		// const squares = history[0].squares
 
-		const square_clicked = document.getElementsByClassName('square')
-		for (var i = 0; i < nulls.length; i++) {
-			square_clicked[nulls[i]].classList.remove("square-clicked")
-		}
+		// for (var i = 0; i < 9; i ++) {
+		// 	buttonClicked[i].classList.remove('square')
+		// }
+
+		// setXIsNext(step % 2 === 0)
 	}
 
+		// ! Update this
+		// const squares = history[step].squares
+		
+		// console.log(squares)
+		
+		// const nulls = []
+		// let j = 0
 
-	const moves = history.map((step, move) => {
-		const desc = move ? "Go to move #" + move : "Go to game start";
+		// for (var i = 0; i < 9; i++) {
+		// 	if (squares[i] === null) {
+		// 		nulls[j] = i
+		// 		j++
+		// 	}
+		// }
 
-		return (
-			<li key={move}>
-				<button className="move-btn" onClick={() => jumpTo(move)}>{desc}</button>
-			</li>
-		);
-	});
+		// console.log('nulls: ', nulls);
+
+
+		// const square_clicked = document.getElementsByClassName('square')
+
+		// if (!isRomove) {
+		// 	for (var i = 0; i < nulls.length; i++) {
+		// 		square_clicked[nulls[i]].classList.remove("square-clicked")
+		// 		isRomove = true
+		// 	}
+		// } else {
+		// 	for (var i = 0; i < nulls.length; i++) {
+		// 		square_clicked[nulls[i]].classList.add("square-clicked")
+		// 		isRomove = false
+		// 	}
+		// }
+	// }
+
+
+	// const moves = history.map((step, move) => {
+	// 	const desc = move ? "Go to move #" + move : "Go to game start";
+
+	// 	return (
+	// 		<li key={move}>
+	// 			<button className="move-btn" onClick={() => jumpTo(move)}>{desc}</button>
+	// 		</li>
+	// 	);
+	// });
 
 	let status;
 
@@ -117,13 +150,15 @@ export default function Game() {
 
 	return (
 		<div className="game">
+			<div className="game-info">
+				<div className="player">{status}</div>
+			</div>
 			<div className="game-board">
 				<Board squares={current.squares} onClick={(i) => handleClick(i)} />
 			</div>
-			<div className="game-info">
-				<div className="player">{status}</div>
-				<ol>{moves}</ol>
-			</div>
+				<p>
+					<button className="move-btn" onClick={() => jumpTo()}>Restart</button>
+				</p>
 		</div>
 	);
 }
