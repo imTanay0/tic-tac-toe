@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { render } from "react-dom";
 import Board from "./Board";
 
 export default function Game() {
@@ -9,6 +10,8 @@ export default function Game() {
 	]);
 	const [xIsNext, setXIsNext] = useState(true);
 	const [stepNumber, setStepNumber] = useState(0)
+
+	let winLine = -1
 
 	const calculateWinner = (squares) => {
 		const lines = [
@@ -29,6 +32,7 @@ export default function Game() {
 				squares[a] === squares[b] &&
 				squares[a] === squares[c]
 			) {
+				winLine = i
 				return squares[a];
 			}
 		}
@@ -63,7 +67,11 @@ export default function Game() {
 	if (winner) {
 		status = "Winner: " + winner;
 	} else {
-		status = "Next player: " + (xIsNext ? "X" : "O");
+		if (history.length === 10) {
+			status = "DRAW";
+		} else {
+			status = "Next player: " + (xIsNext ? "X" : "O");
+		}
 	}
 
 	function handleClick(i) {
@@ -91,8 +99,15 @@ export default function Game() {
 		square_clicked[i].classList.add("square-clicked")
 	}
 
+	const lineClasses = ['line1', 'line2', 'line3', 'line4', 'line5', 'line6', 'line7', 'line8']
+	
 	return (
 		<div className="game">
+
+			{winner ? <div id={lineClasses[winLine]} style={{
+				visibility: 'visible'
+			}}/> : null}
+		
 			<div id="player">{status}</div>
 			<div className="game-board">
 				<Board squares={current.squares} onClick={(i) => handleClick(i)} />
