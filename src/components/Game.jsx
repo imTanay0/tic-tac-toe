@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Board from "./Board";
+import WinnerStyle from './WinnerStyle'
 
 export default function Game() {
 	const [history, setHistory] = useState([
@@ -10,6 +11,8 @@ export default function Game() {
 	const [xIsNext, setXIsNext] = useState(true);
 	const [stepNumber, setStepNumber] = useState(0)
 
+	let winLine = -1
+	
 	const calculateWinner = (squares) => {
 		const lines = [
 			[0, 1, 2],
@@ -29,6 +32,7 @@ export default function Game() {
 				squares[a] === squares[b] &&
 				squares[a] === squares[c]
 			) {
+				winLine = i
 				return squares[a];
 			}
 		}
@@ -40,7 +44,7 @@ export default function Game() {
 	const current = newHistory[stepNumber];
 	const winner = calculateWinner(current.squares);
 
-
+	console.log(winLine)
 
 	// let isRomove = false
 	function jumpTo() {
@@ -104,6 +108,11 @@ export default function Game() {
 			<p>
 				<button className="restart-btn" onClick={() => jumpTo()}>Restart</button>
 			</p>
+
+			{/* {winner ? <WinnerStyle winnerLine={winLine}/> : null} */}
+
+			<WinnerStyle />
+
 		</div>
 	);
 }
