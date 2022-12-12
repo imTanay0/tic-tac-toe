@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 import Board from "./Board";
-import LINES from './WinnerStyle'
 
 export default function Game() {
 	const [history, setHistory] = useState([
@@ -102,20 +101,15 @@ export default function Game() {
 		square_clicked[i].classList.add("square-clicked")
 	}
 
+	const lineClasses = ['line1', 'line2', 'line3', 'line4', 'line5', 'line6', 'line7', 'line8']
+	
 	return (
 		<div className="game">
-			{winner ? LINES[winLine] : null}
-{/* 
-			{LINES[0]}
-			{LINES[1]}
-			{LINES[2]}
-			{LINES[3]}
-			{LINES[4]}
-			{LINES[5]}
-			{LINES[6]}
-			{LINES[7]}
-			{LINES[8]} */}
 
+			{winner ? <div id={lineClasses[winLine]} style={{
+				visibility: 'visible'
+			}}/> : null}
+		
 			<div id="player">{status}</div>
 			<div className="game-board">
 				<Board squares={current.squares} onClick={(i) => handleClick(i)} />

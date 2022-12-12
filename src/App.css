@@ -5,12 +5,6 @@ body {
 
   display: flex;
   justify-content: center;
-
-}
-
-ol,
-ul {
-  padding-left: 30px;
 }
 
 .board-row:after {
@@ -25,7 +19,7 @@ ul {
 }
 
 .square {
-  background: #001547;
+  background: #041744;
   border: 2px solid #fff;
   float: left;
   font-size: 24px;
@@ -87,8 +81,104 @@ ul {
   background-color: #3030e0;
 }
 
+#line1, #line2, #line3, #line4, #line5, #line6, #line7, #line8 {
+  visibility: hidden;
+}
+
+#line1 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  height: 3px;
+  width: 260px;
+  background-color: #fff;
+  top: 111px;
+}
+#line2 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  height: 3px;
+  width: 260px;
+  background-color: #fff;
+  top: 210px;
+}
+#line3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  height: 3px;
+  width: 260px;
+  background-color: #fff;
+  top: 309px;
+}
+#line4 {
+  position: absolute;
+  left: -197px;
+  right: 0;
+  margin: auto;
+
+  height: 260px;
+  width: 3px;
+  background-color: #fff;
+  top: 84px;
+}
+#line5 {
+  position: absolute;
+  left: 2px;
+  right: 0;
+  margin: auto;
+
+  height: 260px;
+  width: 3px;
+  background-color: #fff;
+  top: 84px;
+}
+#line6 {
+  position: absolute;
+  left: 199px;
+  right: 0;
+  margin: auto;
+
+  height: 260px;
+  width: 3px;
+  background-color: #fff;
+  top: 84px;
+}
+#line7 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  height: 320px;
+  width: 3px;
+  background-color: #fff;
+  top: 51px;
+  rotate: -45deg;
+}
+#line8 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  height: 320px;
+  width: 3px;
+  background-color: #fff;
+  top: 51px;
+  rotate: 45deg;
+}
+
 /* -------------------------- */
 @media only screen and (max-width: 620px) {
+  
   .game {
     margin: 0;
     display: flex;
@@ -117,7 +207,48 @@ ul {
     text-align: center;
   }
 
-  /* .line-div {
-    background-color: red;
-  } */
+
+  /* Lines */
+
+  #line1, #line2, #line3 {
+    width: 200px;
+  }
+
+  #line4, #line5, #line6 {
+    height: 200px;
+  }
+
+  #line7, #line8 {
+    height: 250px;
+  }
+
+  /* horizontal lines */
+  #line1 {
+    top: 100px;
+  }
+  #line2 {
+    top: 180px
+  }
+  #line3 {
+    top: 259px
+  }
+
+  /* vertical lines */
+  #line4 {
+    left: -160px
+  }
+  #line5 {
+    left: -1px
+  }
+  #line6 {
+    left: 157px
+  }
+
+  /* diagonal lines */
+  #line7 {
+    top: 57px;
+  }
+  #line8 {
+    top: 55px
+  }
 }
