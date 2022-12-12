@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { render } from "react-dom";
 import Board from "./Board";
-import WinnerStyle from './WinnerStyle'
+import LINES from './WinnerStyle'
 
 export default function Game() {
 	const [history, setHistory] = useState([
@@ -12,7 +13,7 @@ export default function Game() {
 	const [stepNumber, setStepNumber] = useState(0)
 
 	let winLine = -1
-	
+
 	const calculateWinner = (squares) => {
 		const lines = [
 			[0, 1, 2],
@@ -44,8 +45,6 @@ export default function Game() {
 	const current = newHistory[stepNumber];
 	const winner = calculateWinner(current.squares);
 
-	console.log(winLine)
-
 	// let isRomove = false
 	function jumpTo() {
 		setXIsNext(true)
@@ -70,7 +69,11 @@ export default function Game() {
 	if (winner) {
 		status = "Winner: " + winner;
 	} else {
-		status = "Next player: " + (xIsNext ? "X" : "O");
+		if (history.length === 10) {
+			status = "DRAW";
+		} else {
+			status = "Next player: " + (xIsNext ? "X" : "O");
+		}
 	}
 
 	// handle Click
@@ -101,6 +104,18 @@ export default function Game() {
 
 	return (
 		<div className="game">
+			{winner ? LINES[winLine] : null}
+{/* 
+			{LINES[0]}
+			{LINES[1]}
+			{LINES[2]}
+			{LINES[3]}
+			{LINES[4]}
+			{LINES[5]}
+			{LINES[6]}
+			{LINES[7]}
+			{LINES[8]} */}
+
 			<div id="player">{status}</div>
 			<div className="game-board">
 				<Board squares={current.squares} onClick={(i) => handleClick(i)} />
@@ -108,11 +123,6 @@ export default function Game() {
 			<p>
 				<button className="restart-btn" onClick={() => jumpTo()}>Restart</button>
 			</p>
-
-			{/* {winner ? <WinnerStyle winnerLine={winLine}/> : null} */}
-
-			<WinnerStyle />
-
 		</div>
 	);
 }

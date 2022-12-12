@@ -5,6 +5,7 @@ body {
 
   display: flex;
   justify-content: center;
+
 }
 
 ol,
@@ -24,7 +25,7 @@ ul {
 }
 
 .square {
-  background: #e7ff5e;
+  background: #001547;
   border: 2px solid #fff;
   float: left;
   font-size: 24px;
@@ -47,12 +48,10 @@ ul {
 
 .square:hover {
   outline: none;
-  transition: 500ms;
-  background: #0cd0b9;
 }
 
 .square-clicked {
-  background-color: #a95cff;
+  background-color: #191830;
   color: #fff;
 }
 
@@ -88,45 +87,6 @@ ul {
   background-color: #3030e0;
 }
 
-.cross-horizontal {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 1;
-  /* top: 0%; */
-
-  height: 5px;
-  width: 200px;
-  background-color: #180303;
-  top: 47.5%;
-  transition: 1s linear;
-  opacity: 0;
-}
-/* 
-.cross-vertical {
-  height: 160px;
-  width: 10px;
-  background-color: red;
-
-  position: relative;
-}
-
-.cross-diagonal1 {
-  position: relative;
-  width: 10px;
-  height: 226.28px;
-  rotate: 45deg;
-  background-color: red;
-}
-
-.cross-diagonal2 {
-  width: 10px;
-  height: 226.28px;
-  rotate: -45deg;
-  background-color: red;
-} */
-
 /* -------------------------- */
 @media only screen and (max-width: 620px) {
   .game {
@@ -153,6 +113,11 @@ ul {
   }
 
   #player {
+    padding-top: 20px;
     text-align: center;
   }
+
+  /* .line-div {
+    background-color: red;
+  } */
 }
